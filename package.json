@@ -1,6 +1,6 @@
 {
   "name": "src-dependencies",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "Jascha Dachtera <jascha.dachtera@gmail.com>",
   "license": "MIT",
   "private": false,
@@ -25,6 +25,6 @@
   },
   "bin": {
     "src-add": "./src/add.js",
-    "src-run": "./src/exec.js"
+    "src-run": "./src/run.js"
   }
 }
