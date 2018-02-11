@@ -1,6 +1,6 @@
 {
   "name": "src-dependencies",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "author": "Jascha Dachtera <jascha.dachtera@gmail.com>",
   "license": "MIT",
   "private": false,
@@ -8,20 +8,22 @@
     "type": "git",
     "url": "git+https://github.com/jdachtera/src-modules.git"
   },
-  "engines": { "node": ">=8.9.4" },
+  "engines": {
+    "node": ">=8.9.4"
+  },
   "dependencies": {
     "lodash": "^4.17.5",
     "mz": "^2.7.0",
     "normalize-git-url": "^3.0.2",
     "npm-api": "^0.4.10",
-    "rimraf-promise": "^2.0.0"
+    "rmfr": "^2.0.0-3"
   },
   "devDependencies": {
     "eslint": "^4.17.0",
     "eslint-config-airbnb": "^16.1.0",
+    "eslint-plugin-import": "^2.7.0",
     "eslint-plugin-jsx-a11y": "^6.0.2",
-    "eslint-plugin-react": "^7.4.0",
-    "eslint-plugin-import": "^2.7.0"
+    "eslint-plugin-react": "^7.4.0"
   },
   "bin": {
     "src-add": "./src/add.js",

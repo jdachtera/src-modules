@@ -25,12 +25,20 @@ const execPackageCommand = async (packageName, command, args) => {
   const command = process.argv[3];
   const args = process.argv.slice(4);
 
-  if (packageNameArg === '--all') {
-    const packages = await fs.readdir(`${process.cwd()}/src_modules`);
-    await Promise.all(packages.map(async (packageName) => {
-      await execPackageCommand(packageName, command, args);
-    }));
-  } else {
-    await execPackageCommand(packageNameArg, command, args);
+  const processes = [];
+  const packages = [];
+
+  if (packageNameArg === '--sync') {
+    processes.push(exec(command, args, { cwd: process.cwd() }));
   }
+
+  if (['--all', '--sync'].includes(packageNameArg)) {
+    packages.push(...(await fs.readdir(`${process.cwd()}/src_modules`)));
+  } else {
+    packages.push(packageNameArg);
+  }
+
+  processes.push(...packages.map(packageName => execPackageCommand(packageName, command, args)));
+
+  await Promise.all(processes);
 })().catch(console.error);

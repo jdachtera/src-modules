@@ -1,15 +1,10 @@
 const { spawn } = require('child_process');
 
-const exec = (...args) =>
+const exec = (command, args, options) =>
   new Promise((resolve, reject) => {
-    const proc = spawn(...args);
-
-    proc.stdout.on('data', (data) => {
-      process.stdout.write(data);
-    });
-
-    proc.stderr.on('data', (data) => {
-      process.stderr.write(data);
+    const proc = spawn(command, args, {
+      stdio: ['ignore', process.stdout, process.stderr],
+      ...options,
     });
 
     proc.on('close', (code) => {

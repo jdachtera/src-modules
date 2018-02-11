@@ -90,6 +90,10 @@ array-includes@^3.0.3:
     define-properties "^1.1.2"
     es-abstract "^1.7.0"
 
+array-to-sentence@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/array-to-sentence/-/array-to-sentence-1.1.0.tgz#c804956dafa53232495b205a9452753a258d39fc"
+
 array-union@^1.0.1:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/array-union/-/array-union-1.0.2.tgz#9a34410e4f4e3da23dea375be5be70f24778ec39"
@@ -115,6 +119,13 @@ asn1@~0.2.3:
 assert-plus@1.0.0, assert-plus@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/assert-plus/-/assert-plus-1.0.0.tgz#f12e0f3c5d77b0b1cdd9146942e4e96c1e4dd525"
+
+assert-valid-glob-opts@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/assert-valid-glob-opts/-/assert-valid-glob-opts-1.0.0.tgz#ab9b5438ec5e929f5bb08201819affb1227f730a"
+  dependencies:
+    glob-option-error "^1.0.0"
+    validate-glob-opts "^1.0.0"
 
 assign-symbols@^1.0.0:
   version "1.0.0"
@@ -888,6 +899,10 @@ git-repo-name@^0.6.0:
     lazy-cache "^1.0.4"
     remote-origin-url "^0.5.1"
 
+glob-option-error@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/glob-option-error/-/glob-option-error-1.0.0.tgz#57cc65def9c7d5c1461baf13129bb5403cff6176"
+
 glob@^7.0.3, glob@^7.0.5, glob@^7.1.2:
   version "7.1.2"
   resolved "https://registry.yarnpkg.com/glob/-/glob-7.1.2.tgz#c19c9df9a028702d678612384a6552404c636d15"
@@ -930,7 +945,7 @@ globby@^5.0.0:
     pify "^2.0.0"
     pinkie-promise "^2.0.0"
 
-graceful-fs@^4.1.2, graceful-fs@^4.1.4:
+graceful-fs@^4.1.11, graceful-fs@^4.1.2, graceful-fs@^4.1.4:
   version "4.1.11"
   resolved "https://registry.yarnpkg.com/graceful-fs/-/graceful-fs-4.1.11.tgz#0e8bdfe4d1ddb8854d64e04ea7c00e2a026e5658"
 
@@ -1035,6 +1050,10 @@ imurmurhash@^0.1.4:
   version "0.1.4"
   resolved "https://registry.yarnpkg.com/imurmurhash/-/imurmurhash-0.1.4.tgz#9218b9b2b928a238b13dc4fb6b6d576f231453ea"
 
+indexed-filter@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/indexed-filter/-/indexed-filter-1.0.0.tgz#6ec9bf16f52c34e33f32fb6c3cf0b88a91d0c0d1"
+
 inflight@^1.0.4:
   version "1.0.6"
   resolved "https://registry.yarnpkg.com/inflight/-/inflight-1.0.6.tgz#49bd6331d7d02d0c09bc910a1075ba8165b56df9"
@@ -1068,6 +1087,12 @@ inquirer@^3.0.6:
     string-width "^2.1.0"
     strip-ansi "^4.0.0"
     through "^2.3.6"
+
+inspect-with-kind@^1.0.4:
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/inspect-with-kind/-/inspect-with-kind-1.0.4.tgz#4b325d5bf7ef8a6e186791795181c52fc9c5af01"
+  dependencies:
+    kind-of "^6.0.2"
 
 is-accessor-descriptor@^0.1.6:
   version "0.1.6"
@@ -1170,6 +1195,10 @@ is-path-inside@^1.0.0:
   resolved "https://registry.yarnpkg.com/is-path-inside/-/is-path-inside-1.0.1.tgz#8ef5b7de50437a3fdca6b4e865ef7aa55cb48036"
   dependencies:
     path-is-inside "^1.0.1"
+
+is-plain-obj@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/is-plain-obj/-/is-plain-obj-1.1.0.tgz#71a50c8429dfca773c92a390a4a03b39fcd51d3e"
 
 is-plain-object@^2.0.1, is-plain-object@^2.0.3, is-plain-object@^2.0.4:
   version "2.0.4"
@@ -1835,17 +1864,21 @@ restore-cursor@^2.0.0:
     onetime "^2.0.0"
     signal-exit "^3.0.2"
 
-rimraf-promise@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/rimraf-promise/-/rimraf-promise-2.0.0.tgz#3ddbe4378c1adec966bc366ddfbc985143c76952"
-  dependencies:
-    rimraf "^2.4.3"
-
-rimraf@^2.2.8, rimraf@^2.4.3, rimraf@^2.5.3:
+rimraf@^2.2.8, rimraf@^2.5.3, rimraf@^2.6.2:
   version "2.6.2"
   resolved "https://registry.yarnpkg.com/rimraf/-/rimraf-2.6.2.tgz#2ed8150d24a16ea8651e6d6ef0f47c4158ce7a36"
   dependencies:
     glob "^7.0.5"
+
+rmfr@^2.0.0-3:
+  version "2.0.0-3"
+  resolved "https://registry.yarnpkg.com/rmfr/-/rmfr-2.0.0-3.tgz#05e4a35efe33932f814ce57a8b659163c7c28b71"
+  dependencies:
+    assert-valid-glob-opts "^1.0.0"
+    glob "^7.1.2"
+    graceful-fs "^4.1.11"
+    inspect-with-kind "^1.0.4"
+    rimraf "^2.6.2"
 
 run-async@^2.2.0:
   version "2.3.0"
@@ -2153,6 +2186,15 @@ util-deprecate@~1.0.1:
 uuid@^3.1.0:
   version "3.2.1"
   resolved "https://registry.yarnpkg.com/uuid/-/uuid-3.2.1.tgz#12c528bb9d58d0b9265d9a2f6f0fe8be17ff1f14"
+
+validate-glob-opts@^1.0.0:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/validate-glob-opts/-/validate-glob-opts-1.0.2.tgz#ef9f98977d965537ea4f51fa7d5799e9c6ebca91"
+  dependencies:
+    array-to-sentence "^1.1.0"
+    indexed-filter "^1.0.0"
+    inspect-with-kind "^1.0.4"
+    is-plain-obj "^1.1.0"
 
 validate-npm-package-license@^3.0.1:
   version "3.0.1"

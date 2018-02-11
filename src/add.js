@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 const fs = require('mz/fs');
-const rimraf = require('rimraf-promise');
+const rimraf = require('rmfr');
 const { get } = require('lodash');
 const ngu = require('normalize-git-url');
 const exec = require('./exec');
