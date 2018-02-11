@@ -36,10 +36,10 @@ Watch for source code changes inside of your sub package and incrementally recom
 
 #### Example:
 
-    $ yarn src-run --sync git pull
-    $ yarn src-run --sync yarn build
+    $ yarn src-run --all git pull
+    $ yarn src-run --all yarn build
 
-### Execute a command inside of the main prject and all source dependency folders:
+### Execute a command inside of the main project and all source dependency folders:
 
     $ yarn src-run --sync [command] [arg...]
 
