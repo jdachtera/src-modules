@@ -1,40 +1,24 @@
-#!/usr/bin/env node
-const fs = require("mz/fs");
-const passthrough = require("./passthrough");
+const { spawn } = require('child_process');
 
-const package = process.argv[3];
+const exec = (...args) =>
+  new Promise((resolve, reject) => {
+    const proc = spawn(...args);
 
-const execPackageCommand = async (packageName, command, args) => {
-  if (!await fs.exists(process.cwd() + "/src_modules/" + packageName)) {
-    throw new Error("Source package is not installed: " + packageName);
-  }
+    proc.stdout.on('data', (data) => {
+      process.stdout.write(data);
+    });
 
-  const config = {
-    cwd: process.cwd() + "/src_modules/" + packageName,
-    env: {
-      PATH: [
-        process.cwd() + "/src_modules/" + packageName + "/node_modules/.bin/",
-        process.env.PATH
-      ].join(":")
-    }
-  };
+    proc.stderr.on('data', (data) => {
+      process.stderr.write(data);
+    });
 
-  await passthrough(command, args, config);
-};
+    proc.on('close', (code) => {
+      if (code) {
+        reject(code);
+      } else {
+        resolve();
+      }
+    });
+  });
 
-(async () => {
-  const packageNameArg = process.argv[2];
-  const command = process.argv[3];
-  const args = process.argv.slice(4);
-
-  if (packageNameArg === "--all") {
-    const packages = await fs.readdir(process.cwd() + "/src_modules");
-    await Promise.all(
-      packages.map(async packageName => {
-        await execPackageCommand(packageName, command, args);
-      })
-    );
-  } else {
-    await execPackageCommand(packageNameArg, command, args);
-  }
-})().catch(console.error);
+module.exports = exec;

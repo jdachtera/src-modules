@@ -4,6 +4,11 @@
   "author": "Jascha Dachtera <jascha.dachtera@gmail.com>",
   "license": "MIT",
   "private": false,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jdachtera/src-modules.git"
+  },
+  "engines": { "node": ">=8.9.4" },
   "dependencies": {
     "lodash": "^4.17.5",
     "mz": "^2.7.0",
