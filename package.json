@@ -1,6 +1,6 @@
 {
   "name": "src-dependencies",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "author": "Jascha Dachtera <jascha.dachtera@gmail.com>",
   "license": "MIT",
   "private": false,
@@ -9,7 +9,7 @@
     "url": "git+https://github.com/jdachtera/src-modules.git"
   },
   "engines": {
-    "node": ">=8.9.4"
+    "node": ">=8.9.0"
   },
   "dependencies": {
     "is-global": "^0.1.0",
