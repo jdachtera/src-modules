@@ -12,6 +12,7 @@
     "node": ">=8.9.4"
   },
   "dependencies": {
+    "is-global": "^0.1.0",
     "lodash": "^4.17.5",
     "mz": "^2.7.0",
     "normalize-git-url": "^3.0.2",

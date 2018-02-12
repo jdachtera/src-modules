@@ -5,6 +5,7 @@ const rimraf = require('rmfr');
 const { get } = require('lodash');
 const ngu = require('normalize-git-url');
 const exec = require('./exec');
+const isGlobal = require('is-global');
 
 const NpmApi = require('npm-api');
 
@@ -92,6 +93,8 @@ const addPackageSrc = async (packageName) => {
 
     packageJson.srcDependencies[packageName] = config;
   });
+
+  if (isGlobal) return;
 
   await fs.writeFile(`${workDir}/package.json`, JSON.stringify(packageJson, null, 2));
 })().catch(console.error);
