@@ -1,11 +1,8 @@
-#!/usr/bin/env node
-
 const fs = require('mz/fs');
 const rimraf = require('rmfr');
 const { get } = require('lodash');
 const ngu = require('normalize-git-url');
 const exec = require('./exec');
-const isGlobal = require('is-global');
 
 const NpmApi = require('npm-api');
 
@@ -35,11 +32,11 @@ const getRepositoryUrl = async (packageName) => {
 const fetchPackageSrc = async (packageName) => {
   const repository = await getRepositoryUrl(packageName);
 
-  if (!await fs.exists(`${workDir}/src_modules`)) {
+  if (!(await fs.exists(`${workDir}/src_modules`))) {
     await fs.mkdir(`${workDir}/src_modules`);
   }
 
-  if (!await fs.exists(`${workDir}/src_modules/${packageName}`)) {
+  if (!(await fs.exists(`${workDir}/src_modules/${packageName}`))) {
     await exec('git', ['clone', repository.url, `${workDir}/src_modules/${packageName}`]);
   }
 
@@ -54,6 +51,8 @@ const fetchPackageSrc = async (packageName) => {
   });
 
   await exec('git', ['pull'], { cwd });
+
+  await exec('yarn', [], { cwd });
 
   return repository;
 };
@@ -72,11 +71,9 @@ const addPackageSrc = async (packageName) => {
   };
 };
 
-(async () => {
-  const args = process.argv.slice(2);
-
-  const packageNames = args.length
-    ? args
+const addSourcePackage = async ({ _ }) => {
+  const packageNames = _.length
+    ? _
     : Object.keys(get(await getPackageJson(), 'srcDependencies', {}));
 
   const configs = await Promise.all(packageNames.map(addPackageSrc));
@@ -94,7 +91,7 @@ const addPackageSrc = async (packageName) => {
     packageJson.srcDependencies[packageName] = config;
   });
 
-  if (isGlobal) return;
-
   await fs.writeFile(`${workDir}/package.json`, JSON.stringify(packageJson, null, 2));
-})().catch(console.error);
+};
+
+module.exports = addSourcePackage;
